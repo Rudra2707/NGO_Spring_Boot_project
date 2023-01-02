@@ -1,0 +1,128 @@
+package com.infopeer.dto;
+
+import com.infopeer.model.Address;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@AllArgsConstructor
+@NoArgsConstructor
+public class StaffDto {
+	
+	private Long staffId;
+	
+
+	public Long getStaffId() {
+		return staffId;
+	}
+
+
+	public void setStaffId(Long staffId) {
+		this.staffId = staffId;
+	}
+
+	@NotEmpty
+	@Size(min =3, max=20, message="Name must be atleast 3 characters")
+	private String staffName;
+
+	@Override
+	public String toString() {
+		return "StaffDto [staffName=" + staffName + ", staffContact=" + staffContact + ", staffAdhar=" + staffAdhar
+				+ ", staffDesignation=" + staffDesignation + ", department=" + department + ", staffGender="
+				+ staffGender + ", staffDob=" + staffDob + ", address=" + address + "]";
+	}
+	
+
+	public String getStaffName() {
+		return staffName;
+	}
+
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+
+	public Long getStaffContact() {
+		return staffContact;
+	}
+
+	public void setStaffContact(Long staffContact) {
+		this.staffContact = staffContact;
+	}
+
+	public Long getStaffAdhar() {
+		return staffAdhar;
+	}
+
+	public void setStaffAdhar(Long staffAdhar) {
+		this.staffAdhar = staffAdhar;
+	}
+
+	public String getStaffDesignation() {
+		return staffDesignation;
+	}
+
+	public void setStaffDesignation(String staffDesignation) {
+		this.staffDesignation = staffDesignation;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public String getStaffGender() {
+		return staffGender;
+	}
+
+	public void setStaffGender(String staffGender) {
+		this.staffGender = staffGender;
+	}
+
+	public String getStaffDob() {
+		return staffDob;
+	}
+
+	public void setStaffDob(String staffDob) {
+		this.staffDob = staffDob;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	@NotEmpty
+	@Size(min=10, max=10, message="Staff contact not valid !!")
+	private Long staffContact;
+
+	@NotEmpty
+	@Size(min = 12, max=12, message="Adhar no must be 12 digid...!!")
+	private Long staffAdhar;
+
+	@NotEmpty
+	private String staffDesignation;
+	
+	@NotEmpty
+	private String department;
+
+	@NotEmpty
+	private String staffGender;
+	@NotEmpty
+	private String staffDob;
+	
+	@Embedded
+	private Address address;
+}

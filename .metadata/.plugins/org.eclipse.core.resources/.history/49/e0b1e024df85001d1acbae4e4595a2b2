@@ -1,0 +1,14 @@
+package com.intelligicsoftware.repository;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.infopeer.dto.LoginDto;
+import com.infopeer.model.Donar;
+
+
+public interface DonarRepo extends JpaRepository<Donar, Long > {
+	
+	Donar findByLogin(LoginDto login);
+
+}

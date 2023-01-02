@@ -1,0 +1,15 @@
+package com.intelligicsoftware.repository;
+
+import java.io.Serializable;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.infopeer.dto.LoginDto;
+import com.infopeer.model.Admin;
+
+
+public interface AdminRepository extends JpaRepository<Admin, Long>{
+
+	Admin findByLogin(LoginDto login);
+}

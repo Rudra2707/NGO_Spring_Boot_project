@@ -1,0 +1,27 @@
+package com.intelligicsoftware.serviceImpl;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.infopeer.dto.LoginDto;
+import com.infopeer.model.Login;
+import com.infopeer.repository.LoginRepo;
+import com.infopeer.service.LoginService;
+
+@Service
+public class LoginServiceImpl implements LoginService {
+
+	@Autowired
+	public LoginRepo LoginRepo;
+	@Autowired
+	public ModelMapper modelMapper;
+
+	public LoginDto getLogin(String LoginUserName, String LoginPassword) {
+		Login login = this.LoginRepo.findByLoginUsernameAndLoginPassword(LoginUserName, LoginPassword);
+		LoginDto map = this.modelMapper.map(login, LoginDto.class);
+
+		return map;
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.intelligicsoftware.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.infopeer.dto.FeedbackDto;
+import com.infopeer.dto.LoginDto;
+import com.infopeer.model.Feedback;
+import com.infopeer.model.Staff;
+
+public interface FeedbackRepo extends JpaRepository<Feedback, Long>{
+
+	Feedback findByLogin(LoginDto login);
+
+
+}
